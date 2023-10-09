@@ -1,8 +1,11 @@
 package com.test.klassen;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import java.util.ArrayList;
 
 @Entity
@@ -12,6 +15,7 @@ public class Persoon {
     private long persoonID;
     private String naam;
     private int age;
+    @OneToMany(cascade = CascadeType.PERSIST)
     private ArrayList<Dier> dieren = new ArrayList<>();
 
     public Persoon(String naam, int age) {
